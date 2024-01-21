@@ -1,0 +1,24 @@
+package main
+
+import "fmt"
+
+type employee struct {
+    name   string
+    age    int
+    salary int
+}
+
+func main() {
+    emp3 := employee{
+        name:   "Sam",
+        age:    31,
+        salary: 2000,
+    }
+    fmt.Printf("Emp3: %+v\n", emp3)
+
+    emp4 := &emp3
+    fmt.Printf("Emp4: %+v\n", emp4)
+	emp4.name = "Yashraj"
+	fmt.Printf("Emp3: %+v\n", emp3)
+	fmt.Printf("Emp4: %+v\n", *emp4)
+}

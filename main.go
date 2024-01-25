@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"bufio"
 	"os"
 )
 
@@ -41,13 +40,8 @@ func pointer_permute(char_arr *[]int32,target_index int,len int) {
 }
 
 func main(){
-	scanner := bufio.NewScanner(os.Stdin)
-	fmt.Print("Enter the string that you want to see permutations of >")
-	for scanner.Scan() {
-		var target_string string
-		target_string = scanner.Text()
-		var tt,len = convert_string_to_char_array(target_string)
-		pointer_permute(tt,0,len)
-		fmt.Print("Enter the string that you want to see permutations of >")
-	}
+	var target_string string
+	target_string = os.Args[1]
+	var tt,len = convert_string_to_char_array(target_string)
+	pointer_permute(tt,0,len)
 }

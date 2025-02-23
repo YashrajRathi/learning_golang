@@ -5,29 +5,24 @@ import (
 )
 
 
-func increment(pointer *int){
-	*pointer = *pointer + 1
-}
-
-func increment_with_declared_variable(pointer *int){
-	dd := *pointer
-	dd = dd + 1
-}
-
 func main(){
+	// Declare variables in the beginning
+	var main_data int 
+	var pointer_variable *int
+	// var dereferencing_value &int
 
-	ii := 10
-	pp := &ii
-	increment_with_declared_variable(pp) //Does nothing to orignal variable
-	fmt.Println(ii)
-	fmt.Println(pp)
+	// Assign them values
+	main_data = 9
+	pointer_variable = &main_data
+	// dereferencing_value = *main_data
 
-	increment(pp) //Actually increments the variable
-	fmt.Println(ii)
-	fmt.Println(pp)
+	// Attempt to print the main variable
+	fmt.Println(main_data) // prints the obvious value [B]
+	fmt.Println(&main_data) // prints the memory address of the variable [A]
+	// fmt.Println(*main_data) // Not allowed since the int value doesn't contain a valid memory address
 
-}
-
-func print(dd int){
-	fmt.Println(dd)
+	// Attempt to print memory addresses
+	fmt.Println(&pointer_variable) // prints the memory address of pointer variable
+	fmt.Println(pointer_variable) // prints the memory address of the earlier variable [A]
+	fmt.Println(*pointer_variable) // prints the value of the variable [B]
 }
